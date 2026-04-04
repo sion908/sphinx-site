@@ -9,32 +9,27 @@
        {% if bar.image_url %}
        <img class="bar-detail__image" src="{{ bar.image_url }}" alt="{{ bar.name }}">
        {% else %}
-       <div class="bar-detail__placeholder">BAR</div>
+       <div class="bar-detail__placeholder">🍸</div>
        {% endif %}
        <div class="bar-detail__summary">
-         <p class="bar-detail__category">{{ bar.category }}</p>
          <h1 class="bar-detail__title">{{ bar.name }}</h1>
-         <p class="bar-detail__desc">{{ bar.description }}</p>
          <dl class="bar-detail__meta">
-           <dt>エリア</dt><dd>{{ bar.area }}</dd>
            <dt>営業時間</dt><dd>{{ bar.hours }}</dd>
-           <dt>定休日</dt><dd>{{ bar.closed }}</dd>
-           <dt>住所</dt><dd>{{ bar.address }}</dd>
          </dl>
+         {% if bar.promotion %}
+         <p class="bar-detail__desc">{{ bar.promotion }}</p>
+         {% endif %}
+         {% if bar.sns_links %}
          <div class="bar-detail__links">
-           {% if bar.website_url %}<a href="{{ bar.website_url }}">Web</a>{% endif %}
-           {% if bar.instagram_url %}<a href="{{ bar.instagram_url }}">Instagram</a>{% endif %}
-           {% if bar.x_url %}<a href="{{ bar.x_url }}">X</a>{% endif %}
-         </div>
-         <div class="bar-detail__tags">
-           {% for tag in bar.tags %}
-           <span class="bar-tag">{{ tag }}</span>
+           {% for link in bar.sns_links %}
+           <a href="{{ link }}" target="_blank">{{ link }}</a>
            {% endfor %}
          </div>
+         {% endif %}
        </div>
      </div>
    </div>
 
 .. raw:: html
 
-   <p><a href="../index.html">← 一覧へ戻る</a></p>
+   <p style="margin-top: 2rem;"><a href="../index.html" style="color: #fbbf24; text-decoration: none;">← 一覧へ戻る</a></p>

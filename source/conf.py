@@ -15,6 +15,7 @@ html_static_path = ['_static']
 html_css_files = ['shopping-street.css']
 html_title = 'バーサイト'
 html_baseurl = 'https://YOUR_NAME.github.io/YOUR_REPO/'
+html_favicon = '_static/favicon.ico'
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / 'data' / 'bars.json'
@@ -54,10 +55,9 @@ BAR_CARD_TEMPLATE = """.. raw:: html
        {image_html}
      </div>
      <div class="bar-card__body">
-       <p class="bar-card__category">{category}</p>
        <h2 class="bar-card__title">{name}</h2>
-       <p class="bar-card__area">{area}</p>
-       <p class="bar-card__desc">{description}</p>
+       <p class="bar-card__area">{hours}</p>
+       <p class="bar-card__desc">{promotion}</p>
        <div class="bar-card__tags">
          {tags_html}
        </div>
@@ -96,20 +96,20 @@ def _generate_bar_pages() -> None:
         if bar.get('image_url'):
             image_html = f'<img class="bar-card__image" src="{bar["image_url"]}" alt="{bar.get("name", "")}">'
         else:
-            image_html = '<div class="bar-card__placeholder">BAR</div>'
+            image_html = '<div class="bar-card__placeholder">🍸</div>'
 
+        sns_links = bar.get('sns_links', [])
         tags_html = ''.join(
-            f'<span class="bar-tag">{tag}</span>' for tag in bar.get('tags', [])
+            f'<span class="bar-tag">{link}</span>' for link in sns_links if link
         )
 
         cards.append(
             BAR_CARD_TEMPLATE.format(
                 href=f'{slug}.html',
                 image_html=image_html,
-                category=bar.get('category', ''),
                 name=bar.get('name', ''),
-                area=bar.get('area', ''),
-                description=bar.get('description', ''),
+                hours=bar.get('hours', ''),
+                promotion=bar.get('promotion', ''),
                 tags_html=tags_html,
             )
         )
