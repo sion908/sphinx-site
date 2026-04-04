@@ -1,0 +1,40 @@
+{{ '=' * 30 }}
+{{ shop.name }}
+{{ '=' * 30 }}
+
+.. raw:: html
+
+   <div class="shop-detail">
+     <div class="shop-detail__hero">
+       {% if shop.image_url %}
+       <img class="shop-detail__image" src="{{ shop.image_url }}" alt="{{ shop.name }}">
+       {% else %}
+       <div class="shop-detail__placeholder">商店街</div>
+       {% endif %}
+       <div class="shop-detail__summary">
+         <p class="shop-detail__category">{{ shop.category }}</p>
+         <h1 class="shop-detail__title">{{ shop.name }}</h1>
+         <p class="shop-detail__desc">{{ shop.description }}</p>
+         <dl class="shop-detail__meta">
+           <dt>エリア</dt><dd>{{ shop.area }}</dd>
+           <dt>営業時間</dt><dd>{{ shop.hours }}</dd>
+           <dt>定休日</dt><dd>{{ shop.closed }}</dd>
+           <dt>住所</dt><dd>{{ shop.address }}</dd>
+         </dl>
+         <div class="shop-detail__links">
+           {% if shop.website_url %}<a href="{{ shop.website_url }}">Web</a>{% endif %}
+           {% if shop.instagram_url %}<a href="{{ shop.instagram_url }}">Instagram</a>{% endif %}
+           {% if shop.x_url %}<a href="{{ shop.x_url }}">X</a>{% endif %}
+         </div>
+         <div class="shop-detail__tags">
+           {% for tag in shop.tags %}
+           <span class="shop-tag">{{ tag }}</span>
+           {% endfor %}
+         </div>
+       </div>
+     </div>
+   </div>
+
+.. raw:: html
+
+   <p><a href="../index.html">← 一覧へ戻る</a></p>
