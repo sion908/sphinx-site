@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "bar-3",
+    "slug": "bar-3",
+    "name": "",
+    "hours": "",
+    "sns_links": [],
+    "promotion": "",
+    "published": true,
+    "sort_order": 9999,
+    "detail_url": "https://sion908.github.io/sphinx-site/bars/bars/bar-3.html"
+  }
+]
