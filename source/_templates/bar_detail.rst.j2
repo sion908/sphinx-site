@@ -1,35 +1,76 @@
-{{ '=' * 30 }}
+{{ '=' * 50 }}
 {{ bar.name }}
-{{ '=' * 30 }}
+{{ '=' * 50 }}
 
 .. raw:: html
 
    <div class="bar-detail">
+
      <div class="bar-detail__hero">
        {% if bar.image_url %}
-       <img class="bar-detail__image" src="{{ bar.image_url }}" alt="{{ bar.name }}">
+       <img class="bar-detail__image" src="{{ bar.image_url }}" alt="{{ bar.name }}" loading="lazy">
        {% else %}
        <div class="bar-detail__placeholder">🍸</div>
        {% endif %}
-       <div class="bar-detail__summary">
+       <div class="bar-detail__hero-overlay"></div>
+       <div class="bar-detail__hero-content">
+         <span class="bar-detail__category">BAR GUIDE</span>
          <h1 class="bar-detail__title">{{ bar.name }}</h1>
-         <dl class="bar-detail__meta">
-           <dt>営業時間</dt><dd>{{ bar.hours }}</dd>
-         </dl>
-         {% if bar.promotion %}
-         <p class="bar-detail__desc">{{ bar.promotion }}</p>
-         {% endif %}
-         {% if bar.sns_links %}
-         <div class="bar-detail__links">
-           {% for link in bar.sns_links %}
-           <a href="{{ link }}" target="_blank">{{ link }}</a>
-           {% endfor %}
-         </div>
-         {% endif %}
+         {% if bar.area %}<p class="bar-detail__address">📍 {{ bar.area }}{% if bar.address %} · {{ bar.address }}{% endif %}</p>{% endif %}
        </div>
      </div>
+
+     {% if bar.event and bar.event.active %}
+     <div class="bar-detail__event-card">
+       <div class="bar-detail__event-label">🎉 SPECIAL EVENT</div>
+       <div class="bar-detail__event-name">{{ bar.event.name }}</div>
+       <div class="bar-detail__event-desc">{{ bar.event.description }}</div>
+       {% if bar.event.deadline %}<div class="bar-detail__event-desc" style="margin-top:0.5rem;font-size:0.75rem;color:var(--nad-gold);">〜 {{ bar.event.deadline }} まで</div>{% endif %}
+     </div>
+     {% endif %}
+
+     {% if bar.curator_note %}
+     <div class="bar-detail__curator-note">
+       <div class="bar-detail__curator-note-label">The Curator's Note</div>
+       <p>{{ bar.curator_note }}</p>
+     </div>
+     {% endif %}
+
+     <div class="bar-detail__info-grid">
+       {% if bar.area %}
+       <div class="bar-detail__info-item">
+         <span class="bar-detail__info-label">LOCATION</span>
+         <span class="bar-detail__info-value">{{ bar.area }}</span>
+       </div>
+       {% endif %}
+       {% if bar.hours %}
+       <div class="bar-detail__info-item">
+         <span class="bar-detail__info-label">HOURS</span>
+         <span class="bar-detail__info-value">{{ bar.hours }}</span>
+       </div>
+       {% endif %}
+       {% if bar.contact %}
+       <div class="bar-detail__info-item">
+         <span class="bar-detail__info-label">CONTACT</span>
+         <span class="bar-detail__info-value">{{ bar.contact }}</span>
+       </div>
+       {% endif %}
+       {% if bar.specialty %}
+       <div class="bar-detail__info-item">
+         <span class="bar-detail__info-label">SPECIALTY</span>
+         <span class="bar-detail__info-value">{{ bar.specialty }}</span>
+       </div>
+       {% endif %}
+     </div>
+
+     {% if bar.sns_links %}
+     <div class="bar-detail__links">
+       {% for link in bar.sns_links %}
+       <a href="{{ link }}" target="_blank" rel="noopener" class="bar-detail__sns-link">📲 {{ link }}</a>
+       {% endfor %}
+     </div>
+     {% endif %}
+
+     <a href="../bars/index.html" class="bar-detail__back">← バー一覧へ戻る</a>
+
    </div>
-
-.. raw:: html
-
-   <p style="margin-top: 2rem;"><a href="../index.html" style="color: #fbbf24; text-decoration: none;">← 一覧へ戻る</a></p>

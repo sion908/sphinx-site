@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "id": "bar-1",
+    "slug": "midnight-whiskey",
+    "name": "ミッドナイト・ウィスキー",
+    "area": "浜町エリア",
+    "address": "長崎市浜町3-5 夜想ビル2F",
+    "contact": "095-821-0001",
+    "hours": "19:00–02:00",
+    "specialty": "スモーク＆バーボン",
+    "promotion": "週末はライブジャズと共に、厳選ウィスキーを。長崎の夜に溶け込む、大人の隠れ家バー。",
+    "curator_note": "1920年代の雰囲気を再現した内装と、世界中から集めた300種類以上のウィスキーが自慢。バーテンダーのオーナーが一杯一杯丁寧に作るカクテルは、まさに芸術。深夜のジャズセッションも見逃せない。",
+    "image_url": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&q=80",
+    "sns_links": ["https://instagram.com/midnight_whiskey"],
+    "published": true,
+    "sort_order": 1,
+    "detail_url": "midnight-whiskey.html",
+    "lat": 32.7486,
+    "lng": 129.8735,
+    "tags": ["ウィスキー", "ジャズ", "隠れ家"],
+    "district": "浜町地区",
+    "capacity": 20,
+    "event": {
+      "active": true,
+      "name": "Midnight Jazz Session",
+      "description": "毎週金曜 22:00〜 生演奏",
+      "deadline": "2026-04-30"
+    }
+  },
+  {
+    "id": "bar-2",
+    "slug": "cocklab-arcade",
+    "name": "カクテル・アーケード",
+    "area": "新地中華街エリア",
+    "address": "長崎市新地町12-8 アーケードビル1F",
+    "contact": "095-822-0002",
+    "hours": "18:00–03:00",
+    "specialty": "創作カクテル",
+    "promotion": "クリエイティブなカクテルで感性を刺激する、長崎随一のミクソロジーバー。",
+    "curator_note": "分子調理法を取り入れた革新的なカクテルが話題。季節の食材と地元の泡盛をベースにした限定ドリンクは必飲。LEDが輝くカウンターがフォトジェニックで、SNSで話題沸騰中。",
+    "image_url": "https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?w=800&q=80",
+    "sns_links": ["https://instagram.com/cocktail_arcade"],
+    "published": true,
+    "sort_order": 2,
+    "detail_url": "cocklab-arcade.html",
+    "lat": 32.7461,
+    "lng": 129.8712,
+    "tags": ["カクテル", "ミクソロジー", "フォトジェニック"],
+    "district": "新地地区",
+    "capacity": 30,
+    "event": {
+      "active": false,
+      "name": "",
+      "description": "",
+      "deadline": ""
+    }
+  },
+  {
+    "id": "bar-3",
+    "slug": "jazz-underground",
+    "name": "ジャズ・アンダーグラウンド",
+    "area": "思案橋エリア",
+    "address": "長崎市本石灰町2-1 地下1F",
+    "contact": "095-823-0003",
+    "hours": "20:00–05:00",
+    "specialty": "ジャズ＆クラフトビール",
+    "promotion": "地下に広がる音楽の楽園。長崎最古のジャズバーで、本物の音楽と出会う夜を。",
+    "curator_note": "1968年創業の老舗ジャズバー。歴代のミュージシャンたちが名を連ねた壁のサイン入りポスターが歴史を物語る。地元醸造所のクラフトビールと共に、毎夜繰り広げられるセッションに身を委ねて。",
+    "image_url": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+    "sns_links": ["https://instagram.com/jazz_underground_ngs"],
+    "published": true,
+    "sort_order": 3,
+    "detail_url": "jazz-underground.html",
+    "lat": 32.7452,
+    "lng": 129.8758,
+    "tags": ["ジャズ", "クラフトビール", "老舗"],
+    "district": "思案橋地区",
+    "capacity": 50,
+    "event": {
+      "active": true,
+      "name": "Sunset Happy Hour",
+      "description": "20:00〜22:00 全ドリンク20%OFF",
+      "deadline": "2026-04-15"
+    }
+  }
+]
