@@ -1,12 +1,27 @@
 .. raw:: html
 
-   <div style="text-align: center; margin: 3rem 0;">
-     <h1 style="font-size: 3.5rem; margin: 0 0 1rem; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">バーサイト</h1>
-     <p style="font-size: 1.2rem; color: #cbd5e1; margin: 0;">夜の街を歩くように、気になるバーを見つけられるバーホッピングサイト</p>
+   <div class="hero-section">
+     <div class="hero-content">
+       <h1 class="hero-title">Nagasaki After Dark</h1>
+       <p class="hero-subtitle">リアルタイムで空席情報を確認できる、街のバー＆レストランガイド</p>
+       <a href="map.html" class="hero-cta">
+         🗺️ 地図で探す
+       </a>
+     </div>
+   </div>
+
+   <div class="content-section">
+     <h2 class="text-center mb-xl">人気の店舗</h2>
+
+.. include:: _top_cards.rst
+
+.. raw:: html
+
    </div>
 
 .. toctree::
    :maxdepth: 2
    :hidden:
 
+   map
    bars/index

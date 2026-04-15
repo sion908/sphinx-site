@@ -3,4 +3,80 @@
 {% block extrahead %}
   {{ super() }}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block header %}
+<nav class="nad-nav" id="nad-nav">
+  <div class="nad-nav__inner">
+    <a href="{{ pathto('index') }}" class="nad-nav__logo">
+      <span class="nad-nav__logo-text">Nagasaki After Dark</span>
+    </a>
+    <button class="nad-nav__hamburger" id="nad-hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nad-nav__links" id="nad-links">
+      <a href="{{ pathto('index') }}" class="nad-nav__link">トップ</a>
+      <a href="{{ pathto('bars/index') }}" class="nad-nav__link">バー一覧</a>
+      <a href="{{ pathto('map') }}" class="nad-nav__link">地図</a>
+      <a href="{{ pathto('bars/index') }}" class="nad-nav__cta">今夜の空席</a>
+    </div>
+  </div>
+</nav>
+<div class="nad-nav-spacer"></div>
+{% endblock %}
+
+{% block content %}
+<div class="nad-page">
+  {{ super() }}
+</div>
+{% endblock %}
+
+{% block relbar1 %}{% endblock %}
+{% block relbar2 %}{% endblock %}
+{% block sidebar1 %}{% endblock %}
+{% block sidebar2 %}{% endblock %}
+
+{% block footer %}
+<footer class="nad-footer">
+  <div class="nad-footer__inner">
+    <div class="nad-footer__brand">
+      <span class="nad-footer__logo">Nagasaki After Dark</span>
+      <p class="nad-footer__tagline">長崎の夜を、もっと深く。</p>
+    </div>
+    <div class="nad-footer__links">
+      <a href="{{ pathto('index') }}">トップ</a>
+      <a href="{{ pathto('bars/index') }}">バー一覧</a>
+      <a href="{{ pathto('map') }}">地図</a>
+      <a href="#">プライバシー</a>
+      <a href="#">掲載申請</a>
+    </div>
+    <p class="nad-footer__copy">© 2025 Nagasaki After Dark. The Midnight Curator.</p>
+  </div>
+</footer>
+
+<script>
+  // ハンバーガーメニュー
+  const hamburger = document.getElementById('nad-hamburger');
+  const links = document.getElementById('nad-links');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('is-open');
+      links.classList.toggle('is-open');
+    });
+  }
+
+  // スクロールでナビを変化
+  const nav = document.getElementById('nad-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
 {% endblock %}

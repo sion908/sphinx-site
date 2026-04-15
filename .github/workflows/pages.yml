@@ -37,6 +37,8 @@ jobs:
           pip install sphinx ablog sphinx-design sphinxemoji sphinxext-opengraph sphinx-nekochan pymdown-extensions
 
       - name: Build HTML
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: |
           make html
           cp CNAME build/html/ || true

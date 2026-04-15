@@ -44,12 +44,38 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 # 依存インストール
 pip install -r requirements.txt
 
+# 環境変数設定
+cp .env.example .env
+# .envファイルを編集してGoogle Maps APIキーを設定
+# GOOGLE_MAPS_API_KEY=your_actual_api_key_here
+
 # ローカルビルド
 make html
 
 # ローカルサーバー起動
 python -m http.server 8000 -d build/html
 ```
+
+### 環境変数
+
+Google Maps APIキーが必要です：
+
+1. **ローカル開発**: `.env`ファイルに設定
+   ```bash
+   cp .env.example .env
+   # .envファイルを編集
+   GOOGLE_MAPS_API_KEY=your_api_key_here
+   ```
+
+2. **GitHub Actions**: リポジトリのSecretsに設定
+   - Settings → Secrets and variables → Actions
+   - `GOOGLE_MAPS_API_KEY` という名前でSecretを追加
+
+3. **APIキーの取得方法**:
+   - [Google Cloud Console](https://console.cloud.google.com/)にアクセス
+   - プロジェクトを作成
+   - Maps JavaScript APIを有効化
+   - 認証情報からAPIキーを作成
 
 ## データ形式
 
